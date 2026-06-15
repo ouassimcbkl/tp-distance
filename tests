@@ -1,0 +1,21 @@
+from app import calculate_distance, parse_point
+
+
+def test_distance_simple():
+    assert calculate_distance([0, 0], [3, 4]) == 5
+
+
+def test_distance_zero():
+    assert calculate_distance([1, 1], [1, 1]) == 0
+
+
+def test_parse_point():
+    assert parse_point("2,5") == [2, 5]
+
+
+def test_parse_point_invalid():
+    try:
+        parse_point("abc")
+        assert False
+    except ValueError:
+        assert True
