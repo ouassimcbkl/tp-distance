@@ -1,18 +1,32 @@
 <!DOCTYPE html>
-
-<head></head>
+<html>
+<head>
+    <title>Distance Calculator</title>
+</head>
 
 <body>
-    <p>Votre resultat est {{ result }}</p>
-    <h1>Distance</h1>
+    <h1>Calcul de distance</h1>
+
     <form method="POST" action="/">
-        <input type="text" name="apoint" id="apoint">
-        <input type="text" name="bpoint" id="bpoint">
+        <label>Point A (ex: 2,5)</label>
+        <input type="text" name="apoint" required>
 
+        <br><br>
 
+        <label>Point B (ex: 1,6)</label>
+        <input type="text" name="bpoint" required>
 
-        <input type="submit" value="soumettre">
+        <br><br>
+
+        <button type="submit">Calculer</button>
     </form>
-</body>
 
+    {% if result %}
+        <h2>Résultat</h2>
+        <p>Distance : {{ result.result_distance }}</p>
+        <p>Point A : {{ result.start_point }}</p>
+        <p>Point B : {{ result.end_point }}</p>
+        <p>Calculé à : {{ result.requested_at }}</p>
+    {% endif %}
+</body>
 </html>
